@@ -42,5 +42,5 @@ for line in clWrite:
         if line not in ogWrite:
             print("Data in file does not match original file")
             passed = False
-print ("{}".format(testMsg(passed)))
+print ("{}".format(testMsg(passed)))  
     
