@@ -167,3 +167,99 @@ print(df['Age'].apply(lambda x: x*2))
 # fillna(), drop(), rename(): Handle missing values, drop columns, or rename columns.
 
 # apply(): Apply a function to each element, row, or column of the DataFrame.
+
+
+x1 = {
+'Student' : ['David', 'Samuel', 'Terry', 'Evan'],
+'Age': [27, 24, 22, 32],
+'Country': ['UK', 'Canada', 'China', 'USA'],
+'Course' : ['Pyhton', 'Data Structures', 'Machine Learning', 'Web Development'],
+'Marks' : [85, 72, 89, 76]
+
+}
+
+df1 = pd.DataFrame(x1)
+
+# Exercise 2: loc() and iloc() functions
+# loc() is a label-based data selecting method which means that we have to pass the name of the row or column that we want to select. This method includes the last element of the range passed in it.
+
+# Simple syntax for your understanding:
+
+# loc[row_label, column_label]
+# iloc() is an indexed-based selecting method which means that we have to pass an integer index in the method to select a specific row/column. This method does not include the last element of the range passed in it.
+
+# Simple syntax for your understanding:
+
+# iloc[row_index, column_index]
+# Let us see some examples on 
+
+# Access the value on the first row and the first column
+
+print('**********************************************************************')
+
+print('***********firstvalue**************')
+firstvalue = df1.iloc[0, 0]
+print(firstvalue)
+
+# Access the value on the first row and the third column
+print('***********firstrow_thirdcolumn**************')
+firstrow_thirdcolumn = df1.iloc[0,2]
+print(firstrow_thirdcolumn)
+
+# Access the column using the name
+print('***********Marks**************')
+Marks1 = df1.loc[0, 'Marks']
+
+# Column labels
+print(df1.columns)   # Index(['Name', 'Age', 'Salary'], dtype='object')
+
+# Row labels (index)
+print(df1.index)     # RangeIndex(start=0, stop=3, step=1)
+
+#salary1 = df1.loc[1, 1]
+print(Marks1)
+
+
+print('***********new df**************')
+df2=df
+print(df2)
+
+df2=df2.set_index("Name")
+print(df2)
+
+print('***********head**************')
+#To display the first 5 rows of new dataframe
+print(df2.head())
+
+print('***********loc**************')
+#Now, let us access the column using the name
+print(df2.loc['Bob', 'Salary'])
+
+#Use the loc() function,to get the Department of Jane in the newly created dataframe df2.
+print('***********row lable and column name**************')
+print(df2.loc['Charlie', 'Age'])
+
+print('***********row position and column name**************')
+#Use the iloc() function to get the Salary of Mary in the newly created dataframe df2.
+print(df2.iloc[3,1])
+
+# let us do the slicing using old dataframe df
+
+print('***********df**************')
+print('***********df**************')
+print('***********df**************')
+print('***********df**************')
+print(df)
+print('***********df**************')
+print(df.iloc[0:2])
+print('***********df1**************')
+print(df.iloc[0:2, 0:3])
+
+#let us do the slicing using loc() function on old dataframe df where index column is having labels as 0,1,2
+print(df.loc[0:2,'Name':'Age'])
+
+#let us do the slicing using loc() function on new dataframe df2 where index column is Name having labels: Rose, John and Jane
+print(df2.loc['Bob':'Charlie', 'Age':'Salary'])
+
+# using loc() function, do slicing on old dataframe df to retrieve the Name, ID and department of index column having labels as 2,3
+print(df.loc[2:3,'Name':'Age'])
